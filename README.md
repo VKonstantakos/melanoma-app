@@ -16,7 +16,7 @@ The live version can be found at:
 
 ## Demo
 
-![Demo](https://github.com/VKonstantakos/Melanoma-Diagnosis/blob/main/demo/Melanoma%20Detection%20App.gif)
+![Demo](https://github.com/VKonstantakos/melanoma-app/blob/main/demo/Melanoma%20Detection%20App.gif)
 
 ## Support
 
