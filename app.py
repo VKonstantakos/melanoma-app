@@ -10,6 +10,10 @@ from classification import *
 from tempfile import NamedTemporaryFile
 temp_file = NamedTemporaryFile(delete=False)
 
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.set()
 
 #---------------------------------#
 
@@ -148,6 +152,18 @@ if (agree == True and build_choice == 'Single') or (agree == True and build_choi
                 })
 
                 st.dataframe(results.style.format({"Confidence Score": "{:.2f}"}))
+
+                fig, ax = plt.subplots(1, 1, figsize=(10, 8))
+
+                plt.title('Diagnostic Probabilities', fontsize=15)
+
+                sns.barplot(data=results, x='Diagnosis', y='Confidence Score')
+                plt.xlabel('Diagnosis', fontsize=14)
+                plt.ylabel('Confidence Score', fontsize=14)
+
+                buf = BytesIO()
+                fig.savefig(buf, format="png")
+                st.image(buf, width=700)
 
                 st.write("Took {} seconds to run.".format(
                     round(time.time() - start_time, 2)))
